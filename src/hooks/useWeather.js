@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const UseWeather = () => {
+const UseWeather = () => {
   const [weatherData, setWeatherData] = useState({
     location: "",
     climate: "",
@@ -32,7 +32,7 @@ export const UseWeather = () => {
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${
           import.meta.env.VITE_WEATHER_API_KEY
-        }$units=metric`
+        }&units=metric`
       );
       if (!res.ok) {
         const errorMessage = `Fetching Weather Data Failed : ${res.status}`;
@@ -67,11 +67,11 @@ export const UseWeather = () => {
   useEffect(() => {
     setLoading({
       ...loading,
-        state: true,
+      state: true,
       message: "Finding Location...",
     });
     navigator.geolocation.getCurrentPosition(function (position) {
-      fetchWeatherData(position.coords.latitude, position.coords.longitude);
+      fetchWeatherData(position.coords.longitude, position.coords.latitude);
     });
   }, []);
   return {
@@ -80,3 +80,5 @@ export const UseWeather = () => {
     error,
   };
 };
+
+export default UseWeather;
