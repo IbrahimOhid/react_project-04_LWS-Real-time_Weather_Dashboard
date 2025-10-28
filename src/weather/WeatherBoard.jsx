@@ -2,8 +2,12 @@ import React from "react";
 import AddFavorite from "./AddFavorite";
 import WeatherHeadline from "./WeatherHeadline";
 import WeatherCondition from "./WeatherCondition";
+import { UseWeather } from "../hooks/useWeather";
+
 
 const WeatherBoard = () => {
+  const {weatherData, loading, error} = UseWeather()
+  console.log(weatherData, loading, error)
   return (
     <div>
       <div className="mx-auto px-10">
