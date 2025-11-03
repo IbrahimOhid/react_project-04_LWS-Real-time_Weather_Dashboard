@@ -1,4 +1,5 @@
 import React from "react";
+import PinSvg from '../assets/pin.svg'
 
 const WeatherHeadline = () => {
   return (
@@ -11,7 +12,7 @@ const WeatherHeadline = () => {
               16°
             </h1>
             <div className="flex items-center space-x-4 md:mb-4">
-              <img src="./assets/pin.svg" />
+              <img src={PinSvg} />
               <h2 className="text-2xl lg:text-[50px]">Dhaka</h2>
             </div>
           </div>

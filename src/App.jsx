@@ -4,7 +4,7 @@ import WeatherBoard from './weather/WeatherBoard'
 function App() {
 
   return (
-   <div>
+   <div className='place-content-center h-screen'>
     <Header/>
     <main>
       <section>
