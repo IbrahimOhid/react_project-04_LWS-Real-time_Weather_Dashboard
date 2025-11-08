@@ -1,4 +1,4 @@
-const getFormattedData = (type, value, inMS) => {
+export const getFormattedData = (type, value, inMS) => {
   if (!type) return value;
   if (!inMS) {
     value = value * 1000;
@@ -7,7 +7,7 @@ const getFormattedData = (type, value, inMS) => {
   let options;
   if (type === "date") {
     options = {
-      weekday: "long",
+      weekDay: "long",
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -23,4 +23,4 @@ const getFormattedData = (type, value, inMS) => {
 
   return new Intl.DateTimeFormat("en-us", options).format(date);
 };
-export { getFormattedData };
+

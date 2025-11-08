@@ -45,7 +45,7 @@ const WeatherHeadline = () => {
             </h1>
             <div className="flex items-center space-x-4 md:mb-4">
               <img src={PinSvg} alt="location pin" />
-              <h2 className="text-xl lg:text-[40px] text-amber-700">
+              <h2 className="text-xl font-semibold lg:text-[40px] text-amber-700">
                 {location}
               </h2>
             </div>
