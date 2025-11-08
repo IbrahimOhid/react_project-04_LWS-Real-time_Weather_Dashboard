@@ -26,10 +26,10 @@ const useWeather = () => {
       setLoading({
         ...loading,
         state: true,
-        message: "Fetching Weather Data....",
+        message: "Finding location...",
       });
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weatherData?lat=${latitude}&lon=${longitude}&appid=${
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${
           import.meta.env.VITE_WEATHER_API_KEY
         }&units=metric`
       );
@@ -41,7 +41,7 @@ const useWeather = () => {
       const updateWeatherData = {
         ...weatherData,
         location: data.name,
-        climate: data.weatherData[0].main,
+        climate: data.weather[0].main,
         temperature: data.main.temp,
         maxTemperature: data.main.temp_max,
         minTemperature: data.main.temp_min,
@@ -49,10 +49,10 @@ const useWeather = () => {
         cloudPercentage: data.clouds.all,
         wind: data.wind.speed,
         time: data.dt,
-        latitude: latitude,
         longitude: longitude,
+        latitude: latitude,
       };
-      setWeatherData(updateWeatherData)
+      setWeatherData(updateWeatherData);
     } catch (err) {
       setError(err);
     } finally {
@@ -65,7 +65,7 @@ const useWeather = () => {
   };
   useEffect(() => {
     setLoading({
-      loading: true,
+      state: true,
       message: "Finding Weather Data...",
     });
     navigator.geolocation.getCurrentPosition((position) =>
